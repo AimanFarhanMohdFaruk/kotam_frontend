@@ -12,11 +12,11 @@ const SideBar = () => {
             
             <div className={styles.logoSection}>
                 <Image src="/tennis.png" alt="me" width="40" height="40"/>
-                <h2>Kotam</h2>
+                <Link href="/"><h2>Kotam</h2></Link>
             </div>
             
             <nav className={styles.nav}>
-                    <button className={styles.navItem}>
+                    <button className={`${styles.navItem} ${styles.active}`}>
                         <HomeIcon className={styles.navItemImg}/>
                         <p>Dashboard</p>
                     </button>

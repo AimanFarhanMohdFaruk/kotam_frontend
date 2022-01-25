@@ -32,6 +32,11 @@
     background-color: rgb(245, 245, 245);
 }
 
+.navItem.active {
+    font-weight: 700;
+    background-color: lightgrey;
+}
+
 .navItem:hover {
     background-color: lightgrey;
     cursor: pointer;
