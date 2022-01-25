@@ -2,16 +2,21 @@ import _default from 'next/dist/client/router'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import {useQuery, gql } from "@apollo/client"
+import SideBar from '../components/sidebar/sidebar'
+
+const GET_USERS = gql`
+query Users {
+  users {
+    id
+    name
+  }
+}`
 
 export default function Home(props) {
 
-  // export async function getStaticProps(){
-  //   const {data} = ...
+  const {loading,error,data} = useQuery(GET_USERS)
 
-  //   return{
-  //     props: data
-  //   }
-  // }
 
   return (
     <>

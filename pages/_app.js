@@ -1,11 +1,22 @@
 import '../styles/globals.css'
-import Layout from '../components/layout'
+import { ApolloClient, InMemoryCache, ApolloProvider, useQuery, gql } from "@apollo/client"
+import Layout from '../components/layout';
+
+
+const client = new ApolloClient({
+  uri:'http://localhost:4000/',
+  cache: new InMemoryCache()
+});
+
+
 
 function MyApp({ Component, pageProps }) {
   return (
-  <Layout>
-    <Component {...pageProps} />
-  </Layout>
+  <ApolloProvider client={client}>
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
+    </ApolloProvider>
   )
 }
 
