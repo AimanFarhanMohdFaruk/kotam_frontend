@@ -1,9 +1,9 @@
 import _default from 'next/dist/client/router'
 import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
 import {useQuery, gql } from "@apollo/client"
-import SideBar from '../components/sidebar/Sidebar'
+import SideBar from '../components/Sidebar/Sidebar'
+import Center from '../components/Center/Center'
+import styles from "../styles/index.module.css"
 
 const GET_USERS = gql`
 query Users {
@@ -24,14 +24,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div>
-
-        <main>
+        <main className={styles.mainContainer}>
           <SideBar/>
-          {/* Center */}
+          <Center/>
         </main>
-
-      </div>
 
     </>
   )
