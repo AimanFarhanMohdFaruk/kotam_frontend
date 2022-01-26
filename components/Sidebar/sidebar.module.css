@@ -18,6 +18,10 @@
     align-items: center;
 }
 
+.logoSection:hover{
+    cursor: pointer;
+}
+
 .nav {
     display: flex;
     flex-direction: column;

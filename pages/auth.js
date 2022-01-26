@@ -13,7 +13,6 @@ export default function SignIn() {
           <title>Kotam App</title>
           <meta name="description" content="Sign in page" />
         </Head>
-
         <Auth/>
       </>
     )
