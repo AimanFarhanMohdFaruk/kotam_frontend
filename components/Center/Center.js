@@ -10,7 +10,6 @@ const Center = () => {
 
   return (
 
-
     <div className={styles.centerContainer}>
 
         <div className={styles.headerSection} >

@@ -2,6 +2,7 @@ import Head from 'next/head'
 import {useQuery, gql } from "@apollo/client"
 import SideBar from '../components/Sidebar/Sidebar'
 import styles from "../styles/auth.module.css"
+import Auth from '../components/Auth/Auth'
 
 
 export default function SignIn() {
@@ -13,10 +14,7 @@ export default function SignIn() {
           <meta name="description" content="Sign in page" />
         </Head>
 
-          <div className={styles.mainContainer}>
-            <SideBar/>
-            <p> Hi </p>
-          </div>
+        <Auth/>
       </>
     )
   }
