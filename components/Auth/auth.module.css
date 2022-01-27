@@ -44,11 +44,45 @@
     margin-top: 5px;
 }
 
+.inputContainer select{
+    height: 100%;
+    position:relative;
+    width: 100%;
+    background-color: whitesmoke;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    outline: 0;
+    padding: 4px 20px 0;
+    margin-top: 5px;
+    font-size:14px;
+}
+
+.inputContainer1 input{
+    height: 100%;
+    position:relative;
+    width: 100%;
+    background-color: whitesmoke;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    outline: 0;
+    padding: 4px 20px 0;
+    margin-top: 5px;
+}
+
 .inputContainer {
     height: 40px;
     position: relative;
     width: 100%;
     margin-top: 2rem;
+}
+
+.inputContainer1 {
+    height: 40px;
+    position: relative;
+    width: 100%;
+    margin-top: 1rem;
 }
 
 .button {
@@ -65,3 +99,6 @@
     text-align: center;
     width: 100%;
 }
+
+.loginLink {color: #08d;}
+.loginLink:hover{cursor: pointer;}

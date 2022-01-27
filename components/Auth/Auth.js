@@ -25,14 +25,14 @@ const Auth = () => {
         <>
         <div className={styles.contentContainer}>
                 <div className={styles.formContainer}>
-                    <UserCircleIcon width="3.5rem" height="3.5rem"/>
+                    <UserCircleIcon width="5rem" height="5rem"/>
                     <form className={styles.formContent}>
                         <h2>{isSignUp ? "Let's create an account!" : "Login"}</h2>
                         
                         {
                             isSignUp &&(
                                 <>
-                        <div className={styles.inputContainer}>
+                        <div className={styles.inputContainer1}>
                             <label for="username" > Username </label>
                             <input type="text" placeholder="" id="username" onChange={handleChange}/>
                         </div>
@@ -63,17 +63,24 @@ const Auth = () => {
                             <>
                         <div className={styles.inputContainer}>    
                             <label for="confirmPassword" > Confirm password </label>
-                            <input type="text" placeholder="Confirm password" id="confirmPassword" onChange={handleChange}/>
+                            <input type="text" placeholder="" id="confirmPassword" onChange={handleChange}/>
                         </div>
 
                         <div className={styles.inputContainer}>      
                             <label for="group" > Group </label>
-                            <input type="text" placeholder="" id="group" />
+                            <select>
+                                <option>Select group:</option>
+                                <option value="A" >A</option>
+                                <option value="B" >B</option>
+                                <option value="E" >E</option>
+                            </select>
                         </div>
                             </>
                         )}
                         
-                        <button className={styles.button}>Sign Up</button>
+                        <button  type="submit" className={styles.button}>{isSignUp ? "Sign Up" : "Log In"}</button>
+
+                        <p>Already have an account? <a className={styles.loginLink} onClick={switchMode}>Login here</a></p>
 
                     </form>
                 </div>
