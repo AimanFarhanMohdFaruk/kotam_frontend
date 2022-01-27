@@ -29,7 +29,10 @@
     align-items: flex-start;
     justify-content: center;
     width: 350px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
+
+.formContent h2{margin-bottom: -0.5rem;}
 
 .inputContainer input{
     height: 100%;
@@ -58,18 +61,6 @@
     font-size:14px;
 }
 
-.inputContainer1 input{
-    height: 100%;
-    position:relative;
-    width: 100%;
-    background-color: whitesmoke;
-    border-radius: 12px;
-    border: 0;
-    box-sizing: border-box;
-    outline: 0;
-    padding: 4px 20px 0;
-    margin-top: 5px;
-}
 
 .inputContainer {
     height: 40px;
@@ -78,12 +69,6 @@
     margin-top: 2rem;
 }
 
-.inputContainer1 {
-    height: 40px;
-    position: relative;
-    width: 100%;
-    margin-top: 1rem;
-}
 
 .button {
     background-color: #08d;
@@ -102,3 +87,4 @@
 
 .loginLink {color: #08d;}
 .loginLink:hover{cursor: pointer;}
+
