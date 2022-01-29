@@ -9,13 +9,42 @@ import {UserCircleIcon} from "@heroicons/react/solid"
 
 const initialState = {username: "", firstName:"", lastName:"" ,email:"", password:"", confirmPassword:""}
 
+
+const SIGN_UP = gql `
+    mutation SignUp($name: String!, $email: String!, $password: String!, $group: String, $username: String!) {
+    signUp(name: $name, email: $email, password: $password, group: $group, username: $username) {
+            user {
+            name
+            email
+            group {
+                groupName
+            }
+            }
+            token
+        }
+    }
+    `;
+
+const LOGIN = gql `
+    mutation SignIn($email: String!, $password: String!) {
+        signIn(email: $email, password: $password) {
+                token
+                user{
+                id
+                name
+                }
+            }
+        }
+    `;
+
+
 const Auth = () => {
 
     const router = useRouter()
     const [ isSignUp, setIsSignUp ] = useState(true)
     const [ formData, setFormData ] = useState(initialState)
 
-
+    
     const handleChange = (e) => {
         setFormData({...formData, [e.target.name]:e.target.value })
     }
@@ -27,9 +56,11 @@ const Auth = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        if(isSignUp){
 
+        } else {
 
-
+        }
         // router.push("/")
     }
 

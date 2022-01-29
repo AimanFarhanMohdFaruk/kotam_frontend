@@ -1,7 +1,6 @@
 import _default from 'next/dist/client/router'
 import Head from 'next/head'
 import {useQuery, gql } from "@apollo/client"
-import SideBar from '../components/Sidebar/Sidebar'
 import Center from '../components/Center/Center'
 import styles from "../styles/index.module.css"
 
@@ -16,6 +15,7 @@ query Users {
 export default function Home() {
 
   const {loading,error,data} = useQuery(GET_USERS)
+  console.log(data)
   return (
     <>
       <Head>
