@@ -2,11 +2,13 @@ import styles from "./center.module.css"
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
+import { useAuth } from "../../lib/auth";
 
 
 const Center = () => {
-    const [loggedIn,setLoggedIn] = useState(false)
 
+    const {isSignedIn, signOut} = useAuth()
+    
 
   return (
 
@@ -20,13 +22,14 @@ const Center = () => {
             
             <div className={styles.userSection}>
                 <p>Tuesday 25 Jan, 2022</p>
-                {loggedIn ? (
+                {isSignedIn ? (
                 <div className={styles.userDetails} >
                     <Image src="/mock-avatar.png"  width="50" height="50" />
                     <p>Jeje Lena</p>
+                    <button onClick={() => signOut()} className={styles.signOutButton}>Sign Out</button>
                 </div>) : 
                 (
-                    <Link href="/auth"><button>Sign In</button></Link>)}
+                    <Link href="/auth"><button  className={styles.signInButton}>Sign In</button></Link>)}
             </div>
         </div>
 

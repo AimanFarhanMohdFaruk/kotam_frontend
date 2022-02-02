@@ -22,10 +22,21 @@
     gap: 2.5rem;
 }
 
-.userSection button {
+.signInButton {
     width: 6rem;
     height: 2.5rem;
     background-color: #275ff8;
+    color: white;
+    font-weight: 600;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.signOutButton {
+    width: 6rem;
+    height: 2.5rem;
+    background-color: #ff4242;
     color: white;
     font-weight: 600;
     border-radius: 20px;

@@ -14,7 +14,7 @@ const initialState = {username: "", firstName:"", lastName:"" ,email:"", passwor
 const Auth = () => {
 
     const router = useRouter()
-    const {signUp, signIn, signOut} = useAuth()
+    const {signUp, signIn, } = useAuth()
     const [ isSignUp, setIsSignUp ] = useState(true)
     const [ formData, setFormData ] = useState(initialState)
 
