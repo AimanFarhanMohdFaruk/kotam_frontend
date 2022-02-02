@@ -1,68 +1,47 @@
 import styles from "./auth.module.css"
-import {useMutation, gql } from "@apollo/client"
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import {UserCircleIcon} from "@heroicons/react/solid"
+import { useAuth } from "../../lib/auth";
 
 
 const initialState = {username: "", firstName:"", lastName:"" ,email:"", password:"", confirmPassword:""}
 
 
-const SIGN_UP = gql `
-    mutation SignUp($name: String!, $email: String!, $password: String!, $group: String, $username: String!) {
-    signUp(name: $name, email: $email, password: $password, group: $group, username: $username) {
-            user {
-            name
-            email
-            group {
-                groupName
-            }
-            }
-            token
-        }
-    }
-    `;
-
-const LOGIN = gql `
-    mutation SignIn($email: String!, $password: String!) {
-        signIn(email: $email, password: $password) {
-                token
-                user{
-                id
-                name
-                }
-            }
-        }
-    `;
-
 
 const Auth = () => {
 
     const router = useRouter()
+    const {signUp, signIn, signOut} = useAuth()
     const [ isSignUp, setIsSignUp ] = useState(true)
     const [ formData, setFormData ] = useState(initialState)
 
     
     const handleChange = (e) => {
-        setFormData({...formData, [e.target.name]:e.target.value })
-    }
+        setFormData({...formData, [e.target.name] : e.target.value })
+    };
 
     const switchMode = (e) => {
         e.preventDefault()
         setIsSignUp((prevIsSignUp) => !prevIsSignUp)
-    }
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        if(isSignUp){
-
-        } else {
-
+        if (isSignUp){
+            signUp(formData)
+            } else {
+            signIn(formData)
         }
+        clearFormData()
         // router.push("/")
-    }
+    };
+
+    const clearFormData = () => {
+        setFormData(initialState)
+    };
 
     return (
         <>
@@ -77,16 +56,16 @@ const Auth = () => {
                                 <>
                         <div className={styles.inputContainer}>
                             <label for="username" > Username </label>
-                            <input type="text" placeholder="" id="username" onChange={handleChange}/>
+                            <input type="text" placeholder="" name="username" onChange={handleChange}/>
                         </div>
                         <div className={styles.inputContainer}>                           
                             <label for="firstName" > First name </label>
-                            <input type="text" placeholder="" id="firstName" onChange={handleChange}/>
+                            <input type="text" placeholder="" name="firstName" onChange={handleChange}/>
                         </div>
 
                         <div className={styles.inputContainer}>    
                             <label for="lastName" > Last name </label>
-                            <input type="text" placeholder="" id="lastName" onChange={handleChange}/>
+                            <input type="text" placeholder="" name="lastName" onChange={handleChange}/>
                         </div>  
                                 </>
                             )
@@ -94,24 +73,24 @@ const Auth = () => {
 
                         <div className={styles.inputContainer}>    
                             <label for="email" > Email </label>
-                            <input type="text" placeholder="Your email" id="email" onChange={handleChange}/>
+                            <input type="email" placeholder="Your email" name="email" onChange={handleChange}/>
                         </div>
 
                         <div className={styles.inputContainer}>    
                             <label for="password" > Password </label>
-                            <input type="text" placeholder="" id="password" onChange={handleChange}/>
+                            <input type="password" placeholder="" name="password" onChange={handleChange}/>
                         </div>
 
                         {isSignUp  &&(
                             <>
                         <div className={styles.inputContainer}>    
                             <label for="confirmPassword" > Confirm password </label>
-                            <input type="text" placeholder="" id="confirmPassword" onChange={handleChange}/>
+                            <input type="password" placeholder="" name="confirmPassword" onChange={handleChange}/>
                         </div>
 
                         <div className={styles.inputContainer}>      
                             <label for="group" > Group </label>
-                            <select>
+                            <select onChange={handleChange} name="group">
                                 <option>Select group:</option>
                                 <option value="A" >A</option>
                                 <option value="B" >B</option>
