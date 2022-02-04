@@ -6,9 +6,9 @@ import { useAuth } from "../../lib/auth";
 
 
 const Center = () => {
-
-    const {isSignedIn, signOut} = useAuth()
     
+
+    const [ isSignedIn, setIsSignedIn ] = useState(false)
 
   return (
 
@@ -22,11 +22,11 @@ const Center = () => {
             
             <div className={styles.userSection}>
                 <p>Tuesday 25 Jan, 2022</p>
-                {isSignedIn ? (
+                {isSignedIn === true ? (
                 <div className={styles.userDetails} >
                     <Image src="/mock-avatar.png"  width="50" height="50" />
                     <p>Jeje Lena</p>
-                    <button onClick={() => signOut()} className={styles.signOutButton}>Sign Out</button>
+                    <button onClick={() => {}} className={styles.signOutButton}>Sign Out</button>
                 </div>) : 
                 (
                     <Link href="/auth"><button  className={styles.signInButton}>Sign In</button></Link>)}

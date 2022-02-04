@@ -2,7 +2,6 @@ import _default from 'next/dist/client/router'
 import Head from 'next/head'
 import {useQuery, gql } from "@apollo/client"
 import Center from '../components/Center/Center'
-import styles from "../styles/index.module.css"
 
 const GET_USERS = gql`
 query Users {

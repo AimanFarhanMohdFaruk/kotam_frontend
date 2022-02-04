@@ -4,7 +4,6 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import {UserCircleIcon} from "@heroicons/react/solid"
-import { useAuth } from "../../lib/auth";
 
 
 const initialState = {username: "", firstName:"", lastName:"" ,email:"", password:"", confirmPassword:""}
@@ -14,7 +13,6 @@ const initialState = {username: "", firstName:"", lastName:"" ,email:"", passwor
 const Auth = () => {
 
     const router = useRouter()
-    const {signUp, signIn, } = useAuth()
     const [ isSignUp, setIsSignUp ] = useState(true)
     const [ formData, setFormData ] = useState(initialState)
 
@@ -35,7 +33,7 @@ const Auth = () => {
             } else {
             signIn(formData)
         }
-        clearFormData()
+        // clearFormData()
         // router.push("/")
     };
 
