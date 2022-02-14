@@ -26,15 +26,11 @@ const Auth = () => {
         setIsSignUp((prevIsSignUp) => !prevIsSignUp)
     };
 
+    //Mutations Section
+
     const handleSubmit = (e) => {
         e.preventDefault()
-        if (isSignUp){
-            signUp(formData)
-            } else {
-            signIn(formData)
-        }
-        // clearFormData()
-        // router.push("/")
+
     };
 
     const clearFormData = () => {

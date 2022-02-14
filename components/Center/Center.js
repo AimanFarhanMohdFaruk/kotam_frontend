@@ -2,7 +2,6 @@ import styles from "./center.module.css"
 import Image from "next/image";
 import { useState } from "react";
 import Link from "next/link";
-import { useAuth } from "../../lib/auth";
 
 
 const Center = () => {
