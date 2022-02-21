@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import {UserCircleIcon} from "@heroicons/react/solid"
+import {useMutation, gql} from "@apollo/client"
 
 
 const initialState = {username: "", firstName:"", lastName:"" ,email:"", password:"", confirmPassword:""}
@@ -27,6 +28,13 @@ const Auth = () => {
     };
 
     //Mutations Section
+    const SIGN_UP_MUTATION = gql `
+    `
+
+    const SIGN_IN_MUTATION = gql`
+    `
+
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
